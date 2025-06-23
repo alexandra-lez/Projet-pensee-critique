@@ -1,1 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet | L'Art de la Pensée Critique</title>
 
+    <!-- Framework Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icônes Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Personnalisé -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;  /* Bleu nuit profond */
+            --secondary-color: #48a9a6;/* Turquoise/Vert d'eau */
+            --light-bg: #f8f9fa;      /* Gris très clair */
+            --text-color: #343a40;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* --- Section d'accueil (Hero) --- */
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 90px 0;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-section h1 {
+            color: white;
+            font-size: 3.5rem;
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* --- Boutons --- */
+        .btn-custom-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-primary:hover {
+            background-color: #3a8a87;
+            border-color: #3a8a87;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- Titres de section --- */
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* --- Cartes de mission --- */
+        .mission-card {
+            border: none;
+            border-radius: 10px;
+            background-color: white;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .mission-card .icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+        }
+        
+        /* --- Ligne de temps (Timeline) --- */
+        .timeline {
+            position: relative;
+            padding-left: 4rem;
+            border-left: 3px solid var(--secondary-color);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-marker {
+            position: absolute;
+            top: 0;
+            left: -4rem; /* <-- VALEUR CORRIGÉE */
+            transform: translateX(-50%); /* <-- PROPRIÉTÉ AJOUTÉE */
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-bg);
+            border: 3px solid var(--secondary-color);
+            border-radius: 50%;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+        
+        /* --- Section d'appel à l'action (CTA) --- */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .cta-section h2 {
+            color: white;
+        }
+        
+        /* --- Pied de page --- */
+        .footer {
+            background-color: var(--primary-color);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .footer .social-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+        .footer .social-links a:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- SECTION D'ACCUEIL -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 mb-3">« Pensée critique » à l'ère des IAg</h1>
+            <p class="lead mb-4">Un projet qui vise à approfondir la compréhension, à poser des questions pour en savoir plus, et à créer des ressources pour réfléchir et soutenir le développement de la pensée critique.</p>
+            <a href="#mission" class="btn btn-custom-primary btn-lg">Survoler le projet</a>
+        </div>
+    </section>
+
+    <!-- SECTION MISSION -->
+    <section id="mission" class="py-5" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Le point de départ du projet</h2>
+                <p class="lead mb-5"><p>L'émergence de l'IAg marque un tournant pour l'éducation. Cette technologie semble s'imposer comme un puissant partenaire cognitif capable de synthétiser des textes, de générer des idées, de clarifier des concepts, etc.
+Toutefois, cette opportunité recèle un défi majeur : le piège de la passivité intellectuelle. Une utilisation réduite à une simple « boîte à réponses », où la personne se transforme en opératrice passive se contentant de copier-coller des résultats, menace de court-circuiter les processus d'apprentissage fondamentaux.</p>
+<p>Face à ce risque, la pensée critique s'affirme non plus comme une compétence optionnelle, mais comme la méta-compétence indispensable. Ce constat soulève une série de questions fondamentales qui guident notre projet :</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+
+                    <div class="card mission-card p-4 text-center">
+                        <div class="icon mb-3"><i class="bi bi-search"></i></div>
+                        <h4 class="card-title">Interroger</h4>
+                        <p class="card-text">Quelle est la nature de la pensée critique ? Comment la définir précisément au-delà des idées reçues ?</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mission-card p-4 text-center">
+                        <div class="icon mb-3"><i class="bi bi-question-circle"></i></div>
+                        <h4 class="card-title">Comprendre</h4>
+                        <p class="card-text">Comment ce concept évolue-t-il ? De quelle manière l'émergence de technologies comme l'IAg influence-t-elle sa définition et sa pratique ?</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mission-card p-4 text-center">
+                        <div class="icon mb-3"><i class="bi bi-diagram-3"></i></div>
+                        <h4 class="card-title">Construire</h4>
+                        <p class="card-text">Comment la cultiver ? Surtout, quelles stratégies pédagogiques pouvons-nous développer pour soutenir activement son développement dans le contexte éducatif actuel ?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION LES PILIERS (TIMELINE) -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Les étapes de base de la démarche initiale (sommaire)</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline">
+                        <!-- Étape 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-marker"><i class="bi bi-collection"></i></div>
+                            <div class="timeline-content">
+                                <h3>1. Constitution du corpus de textes</h3>
+                                <p>La première étape a consisté à rassembler un corpus de textes de référence. Nous avons sélectionné des œuvres fondatrices (Dewey, Ennis, etc.) pour ancrer notre analyse dans l'histoire du concept, ainsi que des publications récentes pour intégrer les perspectives contemporaines, notamment à l'ère de l'intelligence artificielle. Ce double ancrage vise à arriver à une vision à la fois complète et actuelle.
+</p>
+                            </div>
+                        </div>
+                        <!-- Étape 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-marker"><i class="bi bi-quote"></i></div>
+                            <div class="timeline-content">
+                                <h3>2. Extraction et compilation des définitions</h3>
+                                <p>À partir de ce corpus, nous avons extrait et isolé les définitions de la « pensée critique » proposées. Chaque définition a été compilée dans une base de données, créant ainsi un ensemble de données prêt pour l'analyse.</p>
+                            </div>
+                        </div>
+                        <!-- Étape 3 -->
+                       <div class="timeline-item">
+    <div class="timeline-marker"><i class="bi bi-gear-wide-connected"></i></div>
+    <div class="timeline-content">
+        <h3>3. Traitement automatisé pour l'analyse</h3>
+        <p>Les définitions compilées ont ensuite été traitées à l'aide d'outils d'analyse de texte. En utilisant la librairie <a href="https://www.nltk.org/" target="_blank" rel="noopener noreferrer">NLTK</a>, nous avons effectué une analyse fréquentielle pour faire émerger les termes les plus récurrents. Cette étape a permis de produire une première liste brute de mots-clés potentiels, basée sur leur poids statistique dans l'ensemble des définitions.</p>
+    </div>
+
+                        </div>
+                        <!-- Étape 4 -->
+                        <div class="timeline-item">
+                            <div class="timeline-marker"><i class="bi bi-check2-circle"></i></div>
+                            <div class="timeline-content">
+                                <h3>4. Analyse et validation de mots-clés</h3>
+                                <p>Cette liste brute a ensuite fait l'objet d'une analyse qualitative humaine, une étape importante de validation. Notre travail a consisté à : regrouper les synonymes et concepts similaires (par exemple, « évaluer », « juger », etc.), contextualiser chaque terme pour s'assurer de sa pertinence et finalement, écarter les mots communs mais peu significatifs pour le concept.
+L'objectif était d’arriver à une liste finale de mots-clés qui ne sont pas seulement fréquents, mais qui représentent les piliers sémantiques de la définition de « pensée critique ».
+</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION RESSOURCES -->
+    <section id="ressources" class="py-5" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Ressources du Projet</h2>
+                <p class="lead mb-5">Explorez les outils que nous avons développés pour vous accompagner.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5">
+                    <div class="card h-100 p-4 d-flex flex-row align-items-center mission-card">
+                        <i class="bi bi-database fs-1 text-danger me-4"></i>
+                        <div>
+                            <h5 class="card-title">Base de données de travail</h5>
+                            <p class="card-text mb-2">Explorer la version initiale.</p>
+                            <a href="#" class="btn btn-sm btn-outline-dark">Accéder</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card h-100 p-4 d-flex flex-row align-items-center mission-card">
+                        <i class="bi bi-eye fs-1 text-primary me-4"></i>
+                        <div>
+                            <h5 class="card-title">Aperçu des mots-clés</h5>
+                            <p class="card-text mb-2">Une série de vidéos et d'exercices en ligne.</p>
+                            <a href="#" class="btn btn-sm btn-outline-dark">Consulter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIED DE PAGE (FOOTER) -->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0"> Projet Pensée Critique | Version 1.3 | alexandra.lez@usherbrooke.ca </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end social-links">
+                    <a href="https://www.linkedin.com/in/alexandralez/" target="_blank" rel="noopener noreferrer"> <i class="me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="mailto: alexandra.lez@usherbrooke.ca"><i class="bi bi-envelope-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
